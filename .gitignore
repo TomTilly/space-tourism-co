@@ -15,5 +15,6 @@
 .DS_Store
 .prettierignore
 
-# Misc.
+# Node modules and output
 node_modules
+dist
