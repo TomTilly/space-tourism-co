@@ -1,0 +1,33 @@
+{
+  "emmet.includeLanguages": {
+    "liquid": "html"
+  },
+
+  // Validation
+  "javascript.validate.enable": false, // turns off VSCode's default syntax validation (I'm using ESLint's)
+  "html.validate.scripts": false, // ^ditto
+
+  // Formatting
+  "editor.defaultFormatter": "esbenp.prettier-vscode", // uses Prettier extension formatter for everything except HTML, Liquid, and JS
+  "javascript.format.enable": false, // ^ See above comment
+  "editor.formatOnSave": true,
+  "[html]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "sissel.shopify-liquid"
+  },
+  "[liquid]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "sissel.shopify-liquid"
+  },
+  "[javascript]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": null // needed to prevent Prettier from formatting JS – replaces line from Wes Bos' config that does the same thing
+  },
+  "liquid.format": true, // Disable Liquid extension formatting so that it doesn't conflict with Prettier
+  "eslint.alwaysShowStatus": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true // tell the ESLint plugin to run on save
+  },
+  "eslint.run": "onSave",
+  "eslint.debug": true
+}
