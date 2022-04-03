@@ -1,0 +1,15 @@
+<a class="skip-link" href="#main-content">Skip to content</a>
+<header class="header">
+  <a aria-label="Home" class="header__logo" href="/">
+    {% include "partials/logo.svg" %}
+  </a>
+  <nav aria-label="Primary" class="nav">
+    <ul class="nav__list">
+      {% for item in navigation.items %}
+        <li>
+          <a href="{{ item.url }}" {% if item.url == page.url %} aria-current="page" {% endif %}>{{ item.text }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>

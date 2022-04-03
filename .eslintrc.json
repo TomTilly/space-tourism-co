@@ -14,7 +14,8 @@
     "ecmaVersion": 2020,
     "sourceType": "module" // change to "script" if not using ECMAScript Modules
   },
-  "plugins": ["html", "prettier"],
+  // "plugins": ["html", "prettier"],
+  "plugins": ["prettier"],
   "rules": {
     "no-console": 0,
     "prettier/prettier": [
