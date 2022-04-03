@@ -6,7 +6,7 @@
   {% include "partials/meta-info.liquid" %}
 </head>
 <body>
-  {% render 'partials/header.liquid' %}
+  {% render 'partials/header.liquid', navigation: navigation %}
   <main tabindex="-1" id="main-content">{% block content %}{% endblock %}</main>
 </body>
 </html>
