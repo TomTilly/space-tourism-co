@@ -34,12 +34,11 @@
     "eslint-plugin-prettier": "^4.0.0",
     "get-google-fonts": "^1.2.2",
     "gulp": "^4.0.2",
+    "gulp-if": "^3.0.0",
+    "gulp-imagemin": "^7.1.0",
     "gulp-postcss": "^9.0.1",
     "gulp-sass": "^5.1.0",
     "prettier": "^2.6.1",
     "sass": "^1.49.11"
-  },
-  "dependencies": {
-    "gulp-if": "^3.0.0"
   }
 }
