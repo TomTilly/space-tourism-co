@@ -6,6 +6,7 @@
   // Validation
   "javascript.validate.enable": false, // turns off VSCode's default syntax validation (I'm using ESLint's)
   "html.validate.scripts": false, // ^ditto
+  "css.validate": false,
 
   // Formatting
   "editor.defaultFormatter": "esbenp.prettier-vscode", // uses Prettier extension formatter for everything except HTML, Liquid, and JS

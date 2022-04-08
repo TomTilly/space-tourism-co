@@ -4,8 +4,8 @@
   "description": "",
   "main": ".eleventy.js",
   "scripts": {
-    "start": "npx @11ty/eleventy --serve",
-    "build": "npx @11ty/eleventy"
+    "start": "npx gulp && concurrently \"npx gulp watch\" \"npx @11ty/eleventy --serve\"",
+    "build": "NODE_ENV=production npx gulp && NODE_ENV=production npx @11ty/eleventy"
   },
   "repository": {
     "type": "git",
@@ -23,12 +23,23 @@
     "@babel/core": "^7.17.8",
     "@babel/eslint-parser": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
+    "autoprefixer": "^10.4.4",
+    "concurrently": "^7.1.0",
+    "cssnano": "^5.1.7",
     "eslint": "^8.12.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-html": "^6.2.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.6.1"
+    "get-google-fonts": "^1.2.2",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.1",
+    "gulp-sass": "^5.1.0",
+    "prettier": "^2.6.1",
+    "sass": "^1.49.11"
+  },
+  "dependencies": {
+    "gulp-if": "^3.0.0"
   }
 }

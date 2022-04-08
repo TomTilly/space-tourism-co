@@ -1,9 +1,31 @@
+{% assign assetHash = '' |  asset_hash %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% include "partials/meta-info.liquid" %}
+  <style>{% render "css/critical.css" %}</style>
+  
+  {% if pageCriticalStyles %}
+    {% for item in pageCriticalStyles %}
+      <style>{% render item %}</style>
+    {% endfor %}
+  {% endif %}
+
+  <link rel="stylesheet" media="print" href="/fonts/fonts.css?{{ assetHash }}" onload="this.media='all'" />
+  
+  {% if pageStylesheets %}
+    {% for item in pageStylesheets %}
+    {% comment %}
+      We set media="print" with onload handler in order to prevent render blocking.
+      For more info, see link below:
+        – https://www.filamentgroup.com/lab/load-css-simpler/
+    {% endcomment %}
+      <link rel="stylesheet" media="print" href="{{ item }}?{{ assetHash }}" onload="this.media='all'; this.onload=null;" />
+    {% endfor %}
+  {% endif %}
 </head>
 <body>
   {% render 'partials/header.liquid', navigation: navigation %}
