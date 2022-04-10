@@ -1,0 +1,59 @@
+@use 'sass:map';
+
+// ==== Colors ====
+$color-dark: hsl(230deg 35% 7%);
+$color-light: hsl(0deg 0% 100%);
+$color-accent: hsl(231deg 77% 90%);
+
+// ==== Typography ====
+// Font sizes
+$base-size: 1.125rem; // 18px by default
+$size-scale: (
+  // 14.4px
+  '300': $base-size * 0.8,
+  // 18px
+  '400': $base-size,
+  // 28px
+  '500': $base-size * 1.55,
+  // 32px
+  '600': $base-size * 1.77,
+  // 56px
+  '700': $base-size * 3.11,
+  // 100px
+  '800': $base-size * 5.56,
+  // 150px
+  '900': $base-size * 8.33
+);
+
+// Returns the appropriate size from $size-scale
+@function get-size($size) {
+  @return map.get($size-scale, $size);
+}
+
+// Font families
+$font-heading: '"Bellefair", serif';
+$font-accent: '"Barlow Condensed", sans-serif';
+$font-body: 'Barlow, sans-serif';
+
+// Font weights
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+
+// Line heights
+$line-height-body: 1.77;
+$line-height-heading: 1;
+
+// Letter spacing
+$letter-spacing-400: 0.15px;
+$letter-spacing-500: 2.35px;
+$letter-spacing-600: 2.7px;
+$letter-spacing-700: 4.75px;
+
+// ==== Breakpoints ====
+$breakpoints: (
+  'for-phone-only': 'max-width: 599px',
+  'for-tablet-portrait-up': 'min-width: 600px',
+  'for-tablet-landscape-up': 'min-width: 900px',
+  'for-desktop-up': 'min-width: 1200px',
+  'for-big-desktop-up': 'min-width: 1800px',
+);

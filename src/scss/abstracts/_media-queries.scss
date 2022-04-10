@@ -1,0 +1,8 @@
+@use 'design-tokens';
+@use 'sass:map';
+
+@mixin breakpoint($breakpoint-name) {
+  @media (#{map.get(design-tokens.$breakpoints, $breakpoint-name)}) {
+    @content;
+  }
+}
