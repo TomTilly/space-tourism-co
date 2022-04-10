@@ -11,6 +11,7 @@ const fonts = async () => {
   const googleFontUrl = GetGoogleFonts.constructUrl({
     Bellefair: [400, 700],
     'Barlow Condensed': [400, 700],
+    Barlow: [400],
   });
 
   // Grabs fonts and CSS from google and puts in the dist folder
