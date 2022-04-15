@@ -1,0 +1,70 @@
+@use 'sass:map';
+@use '../abstracts/utilities' as utils;
+
+body {
+  line-height: utils.leading('loose');
+  font-size: utils.size('400');
+  letter-spacing: utils.kerning('400');
+  font-family: utils.font('body');
+  color: utils.color('accent');
+  background-color: utils.color('dark');
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: utils.font('heading');
+}
+
+h1 {
+  font-size: utils.size('900');
+}
+
+h2 {
+  font-size: utils.size('800');
+}
+
+h3 {
+  font-size: utils.size('700');
+}
+
+h4 {
+  font-size: utils.size('600');
+}
+
+h5 {
+  font-size: utils.size('500');
+  font-family: utils.font('accent');
+}
+
+.subheading-1 {
+  font-size: utils.size('500');
+  font-family: utils.font('heading');
+}
+
+.subheading-2 {
+  font-size: utils.size('300');
+  font-family: utils.font('accent');
+}
+
+:focus-visible {
+  outline: 2px solid utils.color('light');
+  outline-offset: 0.25rem;
+}
+
+::selection {
+  color: utils.color('dark');
+  background-color: utils.color('light');
+}

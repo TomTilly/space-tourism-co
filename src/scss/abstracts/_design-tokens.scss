@@ -1,9 +1,9 @@
-@use 'sass:map';
-
 // ==== Colors ====
-$color-dark: hsl(230deg 35% 7%);
-$color-light: hsl(0deg 0% 100%);
-$color-accent: hsl(231deg 77% 90%);
+$colors: (
+  'light': hsl(0deg 0% 100%),
+  'dark': hsl(230deg 35% 7%),
+  'accent': hsl(231deg 77% 90%),
+);
 
 // ==== Typography ====
 // Font sizes
@@ -25,29 +25,32 @@ $size-scale: (
   '900': $base-size * 8.33
 );
 
-// Returns the appropriate size from $size-scale
-@function get-size($size) {
-  @return map.get($size-scale, $size);
-}
-
 // Font families
-$font-heading: '"Bellefair", serif';
-$font-accent: '"Barlow Condensed", sans-serif';
-$font-body: 'Barlow, sans-serif';
+$font-stacks: (
+  'heading': '"Bellefair", serif',
+  'accent': '"Barlow Condensed", sans-serif',
+  'body': 'Barlow, sans-serif',
+);
 
 // Font weights
-$font-weight-normal: 400;
-$font-weight-bold: 700;
+$font-weights: (
+  'normal': 400,
+  'bold': 700,
+);
 
 // Line heights
-$line-height-body: 1.77;
-$line-height-heading: 1;
+$leading: (
+  'flat': 1,
+  'loose': 1.77,
+);
 
 // Letter spacing
-$letter-spacing-400: 0.15px;
-$letter-spacing-500: 2.35px;
-$letter-spacing-600: 2.7px;
-$letter-spacing-700: 4.75px;
+$kerning: (
+  '400': 0.15px,
+  '500': 2.35px,
+  '600': 2.7px,
+  '700': 4.75px,
+);
 
 // ==== Breakpoints ====
 $breakpoints: (

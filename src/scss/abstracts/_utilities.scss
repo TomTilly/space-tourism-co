@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use 'design-tokens' as tokens;
+
+@function size($size) {
+  @return map.get(tokens.$size-scale, $size);
+}
+
+@function color($color) {
+  @return map.get(tokens.$colors, $color);
+}
+
+@function font($family) {
+  @return map.get(tokens.$font-stacks, $family);
+}
+
+@function kerning($kerning) {
+  @return map.get(tokens.$kerning, $kerning);
+}
+
+@function leading($leading) {
+  @return map.get(tokens.$leading, $leading);
+}
+
+@function weight($weight) {
+  @return map.get(tokens.$font-weights, $weight);
+}
+
+@mixin breakpoint($breakpoint-name) {
+  @media (#{map.get(design-tokens.$breakpoints, $breakpoint-name)}) {
+    @content;
+  }
+}
