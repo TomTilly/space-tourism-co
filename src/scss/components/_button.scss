@@ -1,0 +1,47 @@
+@use '../abstracts/utilities';
+
+@mixin button {
+  position: relative;
+  border-radius: 50%;
+  background-color: utilities.color('light');
+  color: utilities.color('dark');
+  font-size: var(--font-size, utilities.size('400'));
+  font-family: utilities.font('heading');
+  line-height: utilities.leading('tight');
+  text-transform: uppercase;
+  text-decoration: none;
+  width: 8.33em;
+  height: 8.33em;
+  cursor: pointer;
+  text-align: center;
+
+  &::after {
+    top: 0;
+    left: 0;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    background-color: utilities.color('light');
+    opacity: 0.1;
+    transition: transform 0.3s linear;
+    pointer-events: none;
+  }
+
+  &:hover::after {
+    transform: scale(170%);
+  }
+
+  &:active::after {
+    transform: scale(180%);
+  }
+}
+
+.button {
+  @include button;
+
+  &--large {
+    --font-size: #{utilities.size('600')};
+  }
+}

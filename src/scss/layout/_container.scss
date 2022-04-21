@@ -1,0 +1,14 @@
+@mixin container {
+  --containerMaxWidth: 90%;
+
+  display: grid;
+  grid-template-columns: 1fr var(--containerMaxWidth) 1fr;
+
+  & > * {
+    grid-column: 2;
+  }
+}
+
+.container {
+  @include container;
+}

@@ -1,0 +1,39 @@
+@use '../abstracts/utilities';
+$columns: 12;
+
+.row {
+  display: flex;
+  gap: var(--row-gap, utilities.size('400')),
+    var(--col-gap, utilities.size('400'));
+  flex-wrap: wrap;
+}
+
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    flex-basis: (100% / $columns) * $i;
+  }
+
+  @include for-tablet-portrait-up {
+    .col-#{i}-sm {
+      flex-basis: (100% / $columns) * $i;
+    }
+  }
+
+  @include for-tablet-landscape-up {
+    .col-#{i}-md {
+      flex-basis: (100% / $columns) * $i;
+    }
+  }
+
+  @include for-desktop-up {
+    .col-#{i}-lg {
+      flex-basis: (100% / $columns) * $i;
+    }
+  }
+
+  @include for-big-desktop-up {
+    .col-#{i}-xl {
+      flex-basis: (100% / $columns) * $i;
+    }
+  }
+}
