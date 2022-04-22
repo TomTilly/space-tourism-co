@@ -1,0 +1,23 @@
+@use '../abstracts/utilities';
+
+.header {
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    flex-grow: 1;
+    height: 2px;
+    background-color: utilities.color('light');
+    order: 1;
+    opacity: 0.2;
+  }
+
+  &__logo {
+    display: block;
+  }
+
+  &__nav {
+    order: 2;
+  }
+}

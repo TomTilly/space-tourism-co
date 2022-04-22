@@ -3,18 +3,19 @@
     to<br>
     content</span>
 </a>
-<header class="header">
-  <a aria-label="Home" class="header__logo" href="/">
-    {% include "partials/logo.svg" %}
-  </a>
-  <nav aria-label="Primary" class="nav">
-    <ul class="nav__list">
-      {% for item in navigation.items %}
-        <li>
-          <a href="{{ item.url }}" {% if item.url == page.url %} aria-current="page" {% endif %}>{{ item.text }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-  </nav>
-</header>
-<button class="button button--large">Test</button>
+<div class="container">
+  <header class="header">
+    <a aria-label="Home" class="header__logo" href="/">
+      {% include "partials/logo.svg" %}
+    </a>
+    <nav aria-label="Primary" class="nav header__nav">
+      <ul class="nav__list">
+        {% for item in navigation.items %}
+          <li class="nav__item">
+            <a class="nav__link" href="{{ item.url }}" {% if item.url == page.url %} aria-current="page" {% endif %}>{{ item.text }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+</div>

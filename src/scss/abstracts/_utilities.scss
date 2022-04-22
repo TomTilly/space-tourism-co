@@ -1,4 +1,5 @@
 @use 'sass:map';
+@use 'sass:string';
 @use 'design-tokens' as tokens;
 
 @function size($size) {
@@ -10,7 +11,7 @@
 }
 
 @function font($family) {
-  @return map.get(tokens.$font-stacks, $family);
+  @return string.unquote(map.get(tokens.$font-stacks, $family));
 }
 
 @function kerning($kerning) {

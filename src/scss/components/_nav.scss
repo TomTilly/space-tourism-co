@@ -1,0 +1,21 @@
+@use '../abstracts/utilities';
+
+.nav {
+  &__list {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    gap: utilities.size('600');
+  }
+
+  &__item {
+  }
+
+  &__link {
+    color: utilities.color('light');
+    text-decoration: none;
+    font-family: utilities.font('accent');
+    text-transform: uppercase;
+  }
+}
