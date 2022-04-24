@@ -1,9 +1,12 @@
+@charset 'utf-8';
+
 @use 'base/reset';
 @use 'base/base';
 
 @use 'layout/container';
 
 @use 'components/skip-link';
+@use 'components/logo';
 @use 'components/header';
 @use 'components/nav';
 @use 'components/button';

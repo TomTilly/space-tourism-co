@@ -28,7 +28,7 @@
   {% endif %}
 </head>
 <body>
-  {% render 'partials/header.liquid', navigation: navigation %}
+  {% render 'partials/header.liquid', navigation: navigation, page: page %}
   <main tabindex="-1" id="main-content">{% block content %}{% endblock %}</main>
 </body>
 </html>

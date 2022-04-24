@@ -1,9 +1,12 @@
 @use 'sass:map';
 @use '../abstracts/utilities' as utils;
 
+html {
+  font-size: utils.size('400');
+}
+
 body {
   line-height: utils.leading('loose');
-  font-size: utils.size('400');
   letter-spacing: utils.kerning('400');
   font-family: utils.font('body');
   color: utils.color('accent');
@@ -16,6 +19,9 @@ h2,
 h3,
 h4,
 h5 {
+  text-transform: uppercase;
+  font-weight: 400;
+
   &:first-child {
     margin-top: 0;
   }

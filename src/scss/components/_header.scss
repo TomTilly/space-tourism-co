@@ -1,23 +1,38 @@
 @use '../abstracts/utilities';
+@use '../layout/container';
 
 .header {
-  display: flex;
-  align-items: center;
+  --container-max-width: 70%;
 
-  &::before {
+  @include container.container;
+
+  margin-top: utilities.size('700');
+
+  &::after {
     content: '';
-    flex-grow: 1;
-    height: 2px;
-    background-color: utilities.color('light');
-    order: 1;
-    opacity: 0.2;
+    align-self: stretch;
+    background-color: hsl(0, 0%, 100%);
+    opacity: 0.04;
+    backdrop-filter: blur(2px);
   }
 
   &__logo {
     display: block;
+    grid-column-start: 1;
+    justify-self: center;
+    align-self: center;
   }
 
   &__nav {
-    order: 2;
+    &::before {
+      content: '';
+      flex-grow: 1;
+      height: 2px;
+      background-color: utilities.color('light');
+      opacity: 0.2;
+      align-self: center;
+      margin-right: -#{utilities.size('500')};
+      z-index: 1;
+    }
   }
 }
