@@ -34,7 +34,13 @@ const calculateOutputDir = ({ history }) => {
 const sass = () =>
   src('./src/scss/**/*.scss')
     .pipe(sassProcessor().on('error', sassProcessor.logError))
-    .pipe(gulpif(isProduction, postcss([autoprefixer, cssNano])))
+    .pipe(
+      gulpif(
+        isProduction,
+        postcss([autoprefixer, cssNano]),
+        postcss([autoprefixer])
+      )
+    )
     .pipe(dest(calculateOutputDir, { sourceMaps: !isProduction }));
 
 module.exports = sass;

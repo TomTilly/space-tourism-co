@@ -1,6 +1,11 @@
 @use '../abstracts/utilities';
 @use '../layout/container';
 
+@mixin nav-background {
+  background-color: hsl(0 0% 100% / 4%);
+  backdrop-filter: blur(10px);
+}
+
 .header {
   --container-max-width: 70%;
 
@@ -9,11 +14,10 @@
   margin-top: utilities.size('700');
 
   &::after {
+    @include nav-background;
+
     content: '';
     align-self: stretch;
-    background-color: hsl(0, 0%, 100%);
-    opacity: 0.04;
-    backdrop-filter: blur(2px);
   }
 
   &__logo {
@@ -32,7 +36,7 @@
       opacity: 0.2;
       align-self: center;
       margin-right: -#{utilities.size('500')};
-      z-index: 1;
+      z-index: 2;
     }
   }
 }

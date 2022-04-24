@@ -27,7 +27,7 @@
 }
 
 @mixin breakpoint($breakpoint-name) {
-  @media (#{map.get(design-tokens.$breakpoints, $breakpoint-name)}) {
+  @media (#{map.get(tokens.$breakpoints, $breakpoint-name)}) {
     @content;
   }
 }

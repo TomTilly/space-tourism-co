@@ -1,18 +1,20 @@
 @use '../abstracts/utilities';
+@use 'header';
 
 .nav {
   display: flex;
 
   &__list {
+    @include header.nav-background;
+
     display: flex;
     padding: 0;
     padding-left: 10%;
     margin: 0;
     list-style: none;
     gap: utilities.size('700');
-    background-color: hsla(0 0% 100% / 4%);
-    backdrop-filter: blur(2px);
     counter-reset: items;
+    z-index: 1; // Gets rid of strange line
   }
 
   &__item {

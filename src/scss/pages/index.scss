@@ -1,5 +1,22 @@
 @charset 'utf-8';
 
+@use '../abstracts/utilities';
+
 body {
-  background-image: url('../../images/home/background-home-desktop.jpg');
+  background-image: url('../../images/home/background-home-mobile.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@include utilities.breakpoint('for-tablet-portrait-up') {
+  body {
+    background-image: url('../../images/home/background-home-tablet.jpg');
+  }
+}
+
+@include utilities.breakpoint('for-desktop-up') {
+  body {
+    background-image: url('../../images/home/background-home-desktop.jpg');
+  }
 }
