@@ -1,20 +1,15 @@
 @use '../abstracts/utilities';
-@use 'header';
 
 .nav {
   display: flex;
 
   &__list {
-    @include header.nav-background;
-
     display: flex;
-    padding: 0;
     padding-left: 10%;
     margin: 0;
     list-style: none;
     gap: utilities.size('700');
     counter-reset: items;
-    z-index: 1; // Gets rid of strange line
   }
 
   &__item {
@@ -32,8 +27,8 @@
     }
   }
 
-  // This selector is separated out from the .nav__item rule above because
-  // the modifier class needed to have higher specificity than .nav__item:hover::after
+  // This selector is separated out from the .nav__item rule above
+  // to raise its specificity
   .nav__item.nav__item--current-page::after {
     opacity: 1;
   }

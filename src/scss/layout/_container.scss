@@ -1,6 +1,6 @@
-@mixin container {
+@mixin container($maxWidth: 85%) {
   display: grid;
-  grid-template-columns: 1fr var(--container-max-width, 85%) 1fr;
+  grid-template-columns: 1fr var(--container-max-width, $maxWidth) 1fr;
 
   & > * {
     grid-column: 2;

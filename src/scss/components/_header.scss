@@ -7,17 +7,12 @@
 }
 
 .header {
-  --container-max-width: 70%;
+  $maxWidth: 70vw;
+  $margin: (100 - $maxWidth) / 2;
 
-  @include container.container;
-
-  margin-top: utilities.size('700');
-
-  &::after {
-    @include nav-background;
-
-    content: '';
-    align-self: stretch;
+  @include container.container($maxWidth);
+  @include utilities.breakpoint('for-desktop-up') {
+    margin-top: utilities.size('700');
   }
 
   &__logo {
@@ -28,15 +23,29 @@
   }
 
   &__nav {
-    &::before {
-      content: '';
-      flex-grow: 1;
-      height: 2px;
-      background-color: utilities.color('light');
-      opacity: 0.2;
-      align-self: center;
-      margin-right: -#{utilities.size('500')};
-      z-index: 2;
+    grid-column: 2 / 4;
+
+    @include utilities.breakpoint('for-tablet-portrait-up') {
+      justify-content: flex-end;
     }
+
+    @include utilities.breakpoint('for-desktop-up') {
+      &::before {
+        content: '';
+        flex-grow: 1;
+        height: 2px;
+        background-color: utilities.color('light');
+        opacity: 0.2;
+        align-self: center;
+        margin-right: -#{utilities.size('500')};
+        z-index: 2;
+      }
+    }
+  }
+
+  &__list {
+    @include nav-background;
+
+    padding-right: $margin;
   }
 }
