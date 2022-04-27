@@ -1,11 +1,6 @@
 @use '../abstracts/utilities';
 @use '../layout/container';
 
-@mixin nav-background {
-  background-color: hsl(0 0% 100% / 4%);
-  backdrop-filter: blur(10px);
-}
-
 .header {
   $maxWidth: 70vw;
   $margin: (100 - $maxWidth) / 2;
@@ -44,8 +39,8 @@
   }
 
   &__list {
-    @include nav-background;
-
+    background-color: hsl(0 0% 100% / 4%);
+    backdrop-filter: blur(10px);
     padding-right: $margin;
   }
 }
