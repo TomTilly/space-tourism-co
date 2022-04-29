@@ -2,11 +2,16 @@
 @use '../layout/container';
 
 .header {
-  $maxWidth: 70vw;
-  $margin: (100 - $maxWidth) / 2;
+  --container-max-width: 70vw;
+  --margin: calc((100vw - var(--container-max-width)) / 2);
 
-  @include container.container($maxWidth);
+  @include container.container;
+  @include utilities.breakpoint('for-tablet-portrait-up') {
+    --container-max-width: 90vw;
+  }
+
   @include utilities.breakpoint('for-desktop-up') {
+    --container-max-width: 70vw;
     margin-top: utilities.size('700');
   }
 
@@ -15,6 +20,14 @@
     grid-column-start: 1;
     justify-self: center;
     align-self: center;
+
+    @include utilities.breakpoint('for-tablet-portrait-up') {
+      padding-inline-start: var(--margin);
+    }
+
+    @include utilities.breakpoint('for-desktop-up') {
+      padding-inline-start: 0;
+    }
   }
 
   &__nav {
@@ -41,6 +54,15 @@
   &__list {
     background-color: hsl(0 0% 100% / 4%);
     backdrop-filter: blur(10px);
-    padding-right: $margin;
+
+    @include utilities.breakpoint('for-tablet-portrait-up') {
+      --padding-inline-start: var(--margin);
+      --padding-inline-end: var(--margin);
+    }
+
+    @include utilities.breakpoint('for-desktop-up') {
+      --padding-inline-start: 10%;
+      --padding-inline-end: var(--margin);
+    }
   }
 }

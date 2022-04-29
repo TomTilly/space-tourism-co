@@ -1,14 +1,18 @@
 @use '../abstracts/utilities';
 
 .nav {
+  --spacer: #{utilities.size('700')};
+
   display: flex;
+  letter-spacing: utilities.kerning('600');
 
   &__list {
+    padding-inline-start: var(--padding-inline-start, 0);
+    padding-inline-end: var(--padding-inline-end, 0);
     display: flex;
-    padding-left: 10%;
     margin: 0;
     list-style: none;
-    gap: utilities.size('700');
+    gap: var(--spacer);
     counter-reset: items;
   }
 
