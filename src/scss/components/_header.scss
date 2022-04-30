@@ -2,30 +2,32 @@
 @use '../layout/container';
 
 .header {
+  @include container.container;
+
   --container-max-width: 70vw;
   --margin: calc((100vw - var(--container-max-width)) / 2);
 
-  @include container.container;
   @include utilities.breakpoint('for-tablet-portrait-up') {
     --container-max-width: 90vw;
   }
 
   @include utilities.breakpoint('for-desktop-up') {
-    --container-max-width: 70vw;
+    --container-max-width: 80vw;
     margin-top: utilities.size('700');
   }
 
   &__logo {
     display: block;
-    grid-column-start: 1;
-    justify-self: center;
+    grid-column: 1;
     align-self: center;
 
     @include utilities.breakpoint('for-tablet-portrait-up') {
+      justify-self: start;
       padding-inline-start: var(--margin);
     }
 
     @include utilities.breakpoint('for-desktop-up') {
+      justify-self: center;
       padding-inline-start: 0;
     }
   }

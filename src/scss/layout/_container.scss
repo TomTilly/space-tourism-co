@@ -1,6 +1,6 @@
 @mixin container {
   display: grid;
-  grid-template-columns: 1fr var(--container-max-width, 85%) 1fr;
+  grid-template-columns: 1fr minmax(1fr, var(--container-max-width, 85%)) 1fr;
 
   & > * {
     grid-column: 2;
