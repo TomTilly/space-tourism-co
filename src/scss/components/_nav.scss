@@ -1,8 +1,6 @@
 @use '../abstracts/utilities';
 
 .nav {
-  --spacer: #{utilities.size('700')};
-
   display: flex;
   letter-spacing: utilities.kerning('600');
 
@@ -12,7 +10,7 @@
     display: flex;
     margin: 0;
     list-style: none;
-    gap: var(--spacer);
+    gap: var(--spacer, #{utilities.size('700')});
     counter-reset: items;
   }
 

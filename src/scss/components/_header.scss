@@ -5,14 +5,16 @@
   @include container.container;
 
   --container-max-width: 70vw;
-  --margin: calc((100vw - var(--container-max-width)) / 2);
 
   @include utilities.breakpoint('for-tablet-portrait-up') {
-    --container-max-width: 90vw;
+    --container-max-width: 80vw;
+    --margin: #{utilities.size('700')};
   }
 
   @include utilities.breakpoint('for-desktop-up') {
     --container-max-width: 80vw;
+    --margin: calc((100vw - var(--container-max-width)) / 2);
+
     margin-top: utilities.size('700');
   }
 
@@ -36,10 +38,13 @@
     grid-column: 2 / 4;
 
     @include utilities.breakpoint('for-tablet-portrait-up') {
+      --spacer: var(--margin);
       justify-content: flex-end;
     }
 
     @include utilities.breakpoint('for-desktop-up') {
+      --spacer: #{utilities.size('700')};
+
       &::before {
         content: '';
         flex-grow: 1;
