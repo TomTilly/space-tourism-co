@@ -1,0 +1,8 @@
+@use '../abstracts/utilities';
+
+$hamburger-layer-color: utilities.color('accent');
+$hamburger-layer-width: 30px;
+$hamburger-padding-x: 0;
+$hamburger-padding-y: 0;
+
+@import '../../../node_modules/hamburgers/_sass/hamburgers/hamburgers.scss';

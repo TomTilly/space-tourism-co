@@ -7,11 +7,13 @@
   <a aria-label="Home" class="header__logo" href="/">
     {% include "partials/logo.svg" %}
   </a>
+  {% assign navId = "nav-list" %}
   <nav aria-label="Primary" class="nav header__nav">
-    <ul class="nav__list header__list">
+    {% include "partials/hamburger", className: "header__hamburger" navId: navId %}
+    <ul class="nav__list header__list" id="{{ navId }}">
       {% for item in navigation.items %}
         {% assign isCurrent = item.url == page.url %}
-        <li class="nav__item{% if isCurrent %} nav__item--current-page{% endif %}">
+        <li class="nav__item header__item{% if isCurrent %} nav__item--current-page{% endif %}">
           <a class="nav__link" href="{{ item.url }}" {% if isCurrent %} aria-current="page" {% endif %}>
             <span aria-hidden class="nav__link-number">0{{ forloop.index0 }}</span>
             {{ item.text }}</a>

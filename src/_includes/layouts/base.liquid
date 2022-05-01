@@ -26,6 +26,8 @@
       <link rel="stylesheet" media="print" href="{{ item }}?{{ assetHash }}" onload="this.media='all'; this.onload=null;" />
     {% endfor %}
   {% endif %}
+
+  <script src="/js/critical.js" defer type="module"></script>
 </head>
 <body>
   {% render 'partials/header.liquid', navigation: navigation, page: page %}

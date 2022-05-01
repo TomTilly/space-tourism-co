@@ -5,6 +5,7 @@
 
 @use 'layout/container';
 
+@use 'components/hamburger'; // hamburger overrides
 @use 'components/skip-link';
 @use 'components/logo';
 @use 'components/header';

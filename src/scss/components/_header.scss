@@ -5,10 +5,11 @@
   @include container.container;
 
   --container-max-width: 70vw;
+  --margin: #{utilities.size('500')};
 
   @include utilities.breakpoint('for-tablet-portrait-up') {
     --container-max-width: 80vw;
-    --margin: #{utilities.size('700')};
+    --margin: #{utilities.size('600')};
   }
 
   @include utilities.breakpoint('for-desktop-up') {
@@ -22,9 +23,12 @@
     display: block;
     grid-column: 1;
     align-self: center;
+    padding-inline-start: var(--margin);
+    padding-block-start: var(--margin);
 
     @include utilities.breakpoint('for-tablet-portrait-up') {
       justify-self: start;
+      padding-block-start: 0;
       padding-inline-start: var(--margin);
     }
 
@@ -35,15 +39,19 @@
   }
 
   &__nav {
+    --gap: 1rem;
+
     grid-column: 2 / 4;
+    position: relative;
+    justify-content: end;
 
     @include utilities.breakpoint('for-tablet-portrait-up') {
-      --spacer: var(--margin);
-      justify-content: flex-end;
+      --gap: var(--margin);
+      justify-content: end;
     }
 
     @include utilities.breakpoint('for-desktop-up') {
-      --spacer: #{utilities.size('700')};
+      --gap: #{utilities.size('700')};
 
       &::before {
         content: '';
@@ -59,17 +67,62 @@
   }
 
   &__list {
+    padding-top: utilities.size('800');
     background-color: hsl(0 0% 100% / 4%);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(15px);
+    width: max(80%, 300px);
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+
+    @include utilities.breakpoint('for-phone-only') {
+      transform: translateX(100%);
+      transition: 0.2s transform linear;
+
+      &--expanded {
+        transform: translateX(0);
+      }
+    }
 
     @include utilities.breakpoint('for-tablet-portrait-up') {
       --padding-inline-start: var(--margin);
       --padding-inline-end: var(--margin);
+
+      padding-top: 0;
+      opacity: 1;
+      position: static;
+      flex-direction: row;
+      height: auto;
+      width: auto;
     }
 
     @include utilities.breakpoint('for-desktop-up') {
       --padding-inline-start: 10%;
       --padding-inline-end: var(--margin);
+    }
+  }
+
+  &__item {
+    --padding-y: 0.3em;
+    --padding-x: 2em;
+
+    @include utilities.breakpoint('for-tablet-portrait-up') {
+      --padding-y: 2em;
+      --padding-x: 0;
+    }
+  }
+
+  &__hamburger {
+    display: inline-block;
+    z-index: 999;
+    padding-block-start: var(--margin);
+    padding-inline-end: var(--margin);
+
+    @include utilities.breakpoint('for-tablet-portrait-up') {
+      display: none;
     }
   }
 }
