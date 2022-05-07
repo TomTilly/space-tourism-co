@@ -3,7 +3,7 @@
 @use 'design-tokens' as tokens;
 
 @function size($size) {
-  @return map.get(tokens.$size-scale, $size);
+  @return map.get(tokens.$sizes, $size);
 }
 
 @function color($color) {
