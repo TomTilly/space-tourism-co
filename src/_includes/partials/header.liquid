@@ -8,14 +8,14 @@
     {% include "partials/logo.svg" %}
   </a>
   {% assign navId = "nav-list" %}
-  <nav aria-label="Primary" class="nav header__nav">
+  <nav aria-label="Primary" class="header__nav">
     {% include "partials/hamburger", className: "header__hamburger" navId: navId %}
-    <ul class="nav__list header__list" id="{{ navId }}">
+    <ul class="header__nav-list" id="{{ navId }}">
       {% for item in navigation.items %}
         {% assign isCurrent = item.url == page.url %}
-        <li class="nav__item header__item{% if isCurrent %} nav__item--current-page{% endif %}">
-          <a class="nav__link" href="{{ item.url }}" {% if isCurrent %} aria-current="page" {% endif %}>
-            <span aria-hidden class="nav__link-number">0{{ forloop.index0 }}</span>
+        <li class="header__nav-item{% if isCurrent %} header__nav-item--current-page{% endif %}">
+          <a class="header__nav-link" href="{{ item.url }}" {% if isCurrent %} aria-current="page" {% endif %}>
+            <span aria-hidden class="header__nav-link-number">0{{ forloop.index0 }}</span>
             {{ item.text }}</a>
         </li>
       {% endfor %}

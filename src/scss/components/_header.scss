@@ -5,31 +5,31 @@
   @include container.container;
 
   --container-max-width: 70vw;
-  --margin: #{utilities.size('500')};
+  --container-inline-margin: #{utilities.size('500')};
 
   @include utilities.breakpoint('for-tablet-portrait-up') {
     --container-max-width: 80vw;
-    --margin: #{utilities.size('600')};
+    --container-inline-margin: #{utilities.size('600')};
   }
 
   @include utilities.breakpoint('for-desktop-up') {
     --container-max-width: 80vw;
-    --margin: calc((100vw - var(--container-max-width)) / 2);
+    --container-inline-margin: calc((100vw - var(--container-max-width)) / 2);
 
-    margin-top: utilities.size('700');
+    margin-block-start: utilities.size('700');
   }
 
   &__logo {
     display: block;
     grid-column: 1;
     align-self: center;
-    padding-inline-start: var(--margin);
-    padding-block-start: var(--margin);
+    padding-inline-start: var(--container-inline-margin);
+    padding-block-start: var(--container-inline-margin);
 
     @include utilities.breakpoint('for-tablet-portrait-up') {
       justify-self: start;
       padding-block-start: 0;
-      padding-inline-start: var(--margin);
+      padding-inline-start: var(--container-inline-margin);
     }
 
     @include utilities.breakpoint('for-desktop-up') {
@@ -39,44 +39,53 @@
   }
 
   &__nav {
-    --gap: 1rem;
-
+    display: flex;
+    justify-content: end;
+    align-items: end;
     grid-column: 2 / 4;
     position: relative;
-    justify-content: end;
+    letter-spacing: utilities.kerning('600');
 
     @include utilities.breakpoint('for-tablet-portrait-up') {
-      --gap: var(--margin);
+      align-items: center;
       justify-content: end;
     }
 
     @include utilities.breakpoint('for-desktop-up') {
-      --gap: #{utilities.size('700')};
-
+      // Line between logo and navigation menu
       &::before {
+        --line-thickness: 2px;
+
         content: '';
         flex-grow: 1;
-        height: 2px;
+        height: var(--line-thickness);
         background-color: utilities.color('light');
         opacity: 0.2;
         align-self: center;
-        margin-right: -#{utilities.size('500')};
-        z-index: 2;
+        margin-inline-end: -#{utilities.size('500')};
+        z-index: 2; // Place line over navigation menu
       }
     }
   }
 
-  &__list {
-    padding-top: utilities.size('800');
-    background-color: hsl(0 0% 100% / 4%);
-    backdrop-filter: blur(15px);
+  &__nav-list {
+    --gap: 1rem;
+
+    display: flex;
     width: max(80%, 300px);
     height: 100vh;
+    flex-direction: column;
+    gap: var(--gap, #{utilities.size('700')});
+    padding-inline-start: var(--padding-inline-start, 0);
+    padding-inline-end: var(--padding-inline-end, 0);
+    padding-block-start: utilities.size('800');
+    margin: 0;
+    list-style: none;
+    background-color: hsl(0 0% 100% / 4%);
+    backdrop-filter: blur(15px);
     position: absolute;
     top: 0;
     right: 0;
-    display: flex;
-    flex-direction: column;
 
     @include utilities.breakpoint('for-phone-only') {
       transform: translateX(100%);
@@ -88,41 +97,103 @@
     }
 
     @include utilities.breakpoint('for-tablet-portrait-up') {
-      --padding-inline-start: var(--margin);
-      --padding-inline-end: var(--margin);
+      --gap: var(--container-inline-margin);
+      --padding-inline-start: var(--container-inline-margin);
+      --padding-inline-end: var(--container-inline-margin);
 
-      padding-top: 0;
-      opacity: 1;
-      position: static;
-      flex-direction: row;
       height: auto;
       width: auto;
+      flex-direction: row;
+      padding-block-start: 0;
+      position: static;
+      opacity: 1;
     }
 
     @include utilities.breakpoint('for-desktop-up') {
+      --gap: #{utilities.size('700')};
       --padding-inline-start: 10%;
-      --padding-inline-end: var(--margin);
+      --padding-inline-end: var(--container-inline-margin);
     }
   }
 
-  &__item {
-    --padding-y: 0.3em;
-    --padding-x: 2em;
+  &__nav-item {
+    --line-thickness: 3px;
+
+    display: flex;
+    justify-content: space-between;
 
     @include utilities.breakpoint('for-tablet-portrait-up') {
-      --padding-y: 2em;
-      --padding-x: 0;
+      flex-direction: column;
+    }
+
+    // Line used to indicate current page or hover state
+    &::after {
+      content: '';
+      background-color: utilities.color('light');
+      opacity: 0;
+      width: var(--line-thickness);
+
+      @include utilities.breakpoint('for-tablet-portrait-up') {
+        width: 100%;
+        height: var(--line-thickness);
+      }
+    }
+
+    &:hover::after {
+      opacity: 0.5;
+    }
+  }
+
+  &__nav-link {
+    --padding-block: 0.3em;
+    --padding-inline: 2em;
+
+    display: block;
+    flex-grow: 1;
+    color: utilities.color('light');
+    text-decoration: none;
+    font-family: utilities.font('accent');
+    text-transform: uppercase;
+    padding: var(--padding-block, 2em) var(--padding-inline, 0);
+    font-weight: utilities.weight('normal');
+    font-size: utilities.size('nav-items');
+
+    @include utilities.breakpoint('for-tablet-portrait-up') {
+      --padding-block: 2em;
+      --padding-inline: 0;
+
+      flex-grow: 0;
+    }
+  }
+
+  &__nav-link-number {
+    display: inline;
+    margin-inline-end: 0.5em;
+    font-weight: utilities.weight('bold');
+
+    @include utilities.breakpoint('for-tablet-portrait-up') {
+      display: none;
+    }
+
+    @include utilities.breakpoint('for-desktop-up') {
+      display: inline;
     }
   }
 
   &__hamburger {
     display: inline-block;
-    z-index: 999;
-    padding-block-start: var(--margin);
-    padding-inline-end: var(--margin);
+    z-index: 999; // Place hamburger over mobile nav menu when it moves into view
+    margin-block-start: var(--container-inline-margin);
+    margin-inline-end: var(--container-inline-margin);
 
     @include utilities.breakpoint('for-tablet-portrait-up') {
       display: none;
     }
   }
+}
+
+// This selector is separated out from the .nav__item rule above
+// to raise its specificity
+.header__nav-item.header__nav-item--current-page::after {
+  opacity: 1;
 }
