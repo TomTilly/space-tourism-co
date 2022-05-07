@@ -2,7 +2,6 @@
 @use '../abstracts/utilities' as utils;
 
 html {
-  font-size: utils.size('400');
   overflow-x: hidden;
 }
 
@@ -12,6 +11,7 @@ body {
   font-family: utils.font('body');
   color: utils.color('accent');
   background-color: utils.color('dark');
+  font-size: utils.size('400');
 }
 
 p,
