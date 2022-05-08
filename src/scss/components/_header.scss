@@ -89,6 +89,7 @@
     @include utilities.breakpoint('for-phone-only') {
       transform: translateX(100%);
       transition: 0.2s transform linear;
+      z-index: 3; // Make sure mobile nav overlaps all content
 
       &--expanded {
         transform: translateX(0);
