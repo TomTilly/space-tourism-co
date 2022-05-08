@@ -3,7 +3,7 @@
 
 :root {
   --scrollbar-track-color: rgb(19, 19, 19);
-  --scrollbar-thumb-color: hsla(0, 0%, 93%, 0.572);
+  --scrollbar-thumb-color: #{utils.color('accent')};
 }
 
 html {
@@ -42,6 +42,7 @@ h4 {
 
 h1 {
   font-size: utils.size('900');
+  line-height: utils.leading('flat');
 }
 
 h2 {
