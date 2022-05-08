@@ -81,8 +81,7 @@
     padding-block-start: utilities.size('800');
     margin: 0;
     list-style: none;
-    background-color: hsl(0 0% 100% / 4%);
-    backdrop-filter: blur(15px);
+    background-color: rgba(0, 0, 0, 0.9); // fallback
     position: absolute;
     top: 0;
     right: 0;
@@ -107,12 +106,18 @@
       padding-block-start: 0;
       position: static;
       opacity: 1;
+      background-color: rgba(0, 0, 0, 0.364); // fallback
     }
 
     @include utilities.breakpoint('for-desktop-up') {
       --gap: #{utilities.size('700')};
       --padding-inline-start: 10%;
       --padding-inline-end: var(--container-inline-margin);
+    }
+
+    @supports (backdrop-filter: blur(15px)) {
+      background-color: hsl(0 0% 100% / 4%);
+      backdrop-filter: blur(15px);
     }
   }
 
