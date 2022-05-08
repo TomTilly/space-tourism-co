@@ -92,12 +92,14 @@ html {
   width: 10px; /* Mostly for vertical scrollbars */
   height: 10px; /* Mostly for horizontal scrollbars */
 }
+
 ::-webkit-scrollbar-thumb {
   /* Foreground */
   background: var(--scrollbar-thumb-color);
   border-radius: 0.5rem;
   border: 2px solid var(--scrollbar-track-color);
 }
+
 ::-webkit-scrollbar-track {
   /* Background */
   background: var(--scrollbar-track-color);
