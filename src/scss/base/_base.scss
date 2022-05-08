@@ -1,6 +1,11 @@
 @use 'sass:map';
 @use '../abstracts/utilities' as utils;
 
+:root {
+  --scrollbar-track-color: rgb(19, 19, 19);
+  --scrollbar-thumb-color: hsla(0, 0%, 93%, 0.572);
+}
+
 html {
   overflow-x: hidden;
 }
@@ -74,4 +79,26 @@ h5 {
 ::selection {
   color: utils.color('dark');
   background-color: utils.color('light');
+}
+
+// Scrollbar
+html {
+  /* Foreground, Background */
+  scrollbar-color: var(--scrollbar-thumb-color) var(--scrollbar-track-color);
+  scrollbar-width: thin;
+}
+
+::-webkit-scrollbar {
+  width: 10px; /* Mostly for vertical scrollbars */
+  height: 10px; /* Mostly for horizontal scrollbars */
+}
+::-webkit-scrollbar-thumb {
+  /* Foreground */
+  background: var(--scrollbar-thumb-color);
+  border-radius: 0.5rem;
+  border: 2px solid var(--scrollbar-track-color);
+}
+::-webkit-scrollbar-track {
+  /* Background */
+  background: var(--scrollbar-track-color);
 }
