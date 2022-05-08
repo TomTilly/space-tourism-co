@@ -40,15 +40,15 @@
 
   &__nav {
     display: flex;
-    justify-content: end;
-    align-items: end;
+    justify-content: flex-end;
+    align-items: flex-end;
     grid-column: 2 / 4;
     position: relative;
     letter-spacing: utilities.kerning('600');
 
     @include utilities.breakpoint('for-tablet-portrait-up') {
       align-items: center;
-      justify-content: end;
+      justify-content: flex-end;
     }
 
     @include utilities.breakpoint('for-desktop-up') {
