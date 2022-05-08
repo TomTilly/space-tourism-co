@@ -16,7 +16,7 @@
     --container-max-width: 80vw;
     --container-inline-margin: calc((100vw - var(--container-max-width)) / 2);
 
-    margin-block-start: utilities.size('700');
+    padding-block-start: utilities.size('700');
   }
 
   &__logo {
