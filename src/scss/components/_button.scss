@@ -1,6 +1,9 @@
 @use '../abstracts/utilities';
 
 @mixin button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   border-radius: 50%;
   background-color: utilities.color('light');
